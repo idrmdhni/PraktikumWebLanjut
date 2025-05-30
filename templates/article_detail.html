@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ article.title }}
+{% endblock %}
+
+{% block css %}
+  <style>
+    .article-header {
+      background-color: #005691;
+      color: white;
+      padding: 2rem 0.75rem;
+    }
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Article Header -->
+      <div class="col-lg-9 mx-auto">
+        <div class="article-header text-center">
+          <h1 class="fw-bold mb-4">{{ article.title }}</h1>
+          <p class="mb-0 text-white">
+            Ditulis oleh <strong class="text-capitalize">{{ article.created_by }}</strong>
+          </p>
+          <p class="mb-0 text-white-50">{{ article.created_at }}</p>
+        </div>
+
+        <!-- Featured Image -->
+        <img src="{{ article.image.url }}" alt="..." class="img-fluid mb-4 w-100" />
+
+        <!-- Article Content -->
+        <div class="article-content" style="text-align: justify;">
+          <p>{{ article.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

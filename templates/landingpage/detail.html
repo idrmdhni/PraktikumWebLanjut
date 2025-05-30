@@ -1,0 +1,59 @@
+{% extends 'landingpage/base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ article }}
+{% endblock %}
+
+{% block content %}
+  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <section class="py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ms-auto me-auto">
+            <h3 class="title">{{ article.title }}</h3>
+            <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">{{ article.category }}</h6>
+            <div class="mb-4">
+              <span class="fw-semibold">{{ article.created_by }}</span> • <small class="text-muted fst-italic">{{ article.created_at }}</small>
+            </div>
+            <img src="{{ article.image.url }}" alt="..." class="img-fluid mb-4 w-100" />
+            <p class="text-dark">{{ article.content }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-9 text-center mx-auto">
+            <h3 class="mb-6 px-md-6">Lihat Berita Lainnya</h3>
+          </div>
+          <div class="col-lg-4 mb-lg-0 mb-4">
+            {% for i in another_article %}
+              <div class="card">
+                <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
+                  <a href="{% url 'article_detail' i.id %}" class="d-block blur-shadow-image"><img src="{{ i.image.url }}" class="img-fluid border-radius-md" alt="anastasia" loading="lazy" /></a>
+                </div>
+                <div class="card-body">
+                  <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">{{ i.category }}</span>
+                  <a href="{% url 'article_detail' i.id %}" class="card-title mt-3 h5 d-block text-darker">{{ i.title }}</a>
+                  <p class="card-description mb-4">{{ i.content|truncatechars:100 }}</p>
+                  <div class="author align-items-center">
+                    <img src="{% static 'landingpage/assets/img/fotoku.jpg' %}" alt="..." class="avatar shadow" loading="lazy" />
+                    <div class="name ps-2">
+                      <span>{{ i.created_by }}</span>
+                      <div class="stats">
+                        <small>{{ i.created_at }}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

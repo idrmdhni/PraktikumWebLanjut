@@ -1,0 +1,55 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header">
+          <div class="d-flex align-items-center">
+            <h5 class="mb-0">Daftar Kategori</h5>
+            <a href="{% url 'admin_add_article' %}" class="btn btn-info ms-3 mb-0">Tambah</a>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-flush" id="datatable-search">
+            <thead class="thead-light">
+              <tr>
+                <th>No.</th>
+                <th>Judul</th>
+                <th>Kategori</th>
+                <th>Status</th>
+                <th class="text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for article in articles %}
+                <tr>
+                  <td class="text-sm font-weight-normal">{{ forloop.counter }}.</td>
+                  <td class="text-sm font-weight-normal">{{ article.title }}</td>
+                  <td class="text-sm font-weight-normal">{{ article.category }}</td>
+                  <td class="text-sm font-weight-normal">{{ article.status }}</td>
+                  <td class="text-sm font-weight-normal text-center">
+                    <a href="{% url 'admin_delete_article' article.id %}" class="btn-sm btn-danger me-1">Hapus</a> |
+                    <a href="{% url 'admin_edit_article' article.id %}" class="btn-sm btn-warning ms-1">Edit</a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'dashboard/assets/js/plugins/datatables.js' %}"></script>
+  <script>
+    const dataTableSearch = new simpleDatatables.DataTable('#datatable-search', {
+      searchable: true,
+      fixedHeight: true
+    })
+  </script>
+{% endblock %}

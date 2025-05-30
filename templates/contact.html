@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+  <!-- Main Content -->
+  <div class="row mt-3 px-5">
+    <!-- Informasi Kontak -->
+    <div class="col-12 mb-5">
+      <h3 class="mb-4 text-center">Informasi Kontak</h3>
+
+      <div class="row">
+        <div class="col">
+          <div class="contact-info-item">
+            <h5>Alamat</h5>
+            <p>
+              Jl. Contoh No. 123<br />Jakarta Selatan, 12345<br />Indonesia
+            </p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="contact-info-item">
+            <h5>Telepon</h5>
+            <p>+62 21 1234 5678</p>
+            <p>+62 812 3456 7890</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="contact-info-item">
+            <h5>Email</h5>
+            <p>info@perusahaananda.com</p>
+            <p>cs@perusahaananda.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Kontak -->
+    <div class="col-12">
+      <h3 class="mb-4 text-center">Kirim Pesan</h3>
+      <form>
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap" />
+              <label for="nama">Nama Lengkap</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="email" placeholder="Email" />
+              <label for="email">Email</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="subjek" placeholder="Subjek" />
+          <label for="subjek">Subjek</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="pesan" style="height: 150px" placeholder="Pesan"></textarea>
+          <label for="pesan">Pesan</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Kirim Pesan</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
