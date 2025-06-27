@@ -13,7 +13,6 @@ django-filter==25.1
 djangorestframework==3.16.0
 gunicorn==23.0.0
 idna==3.10
-jwt==1.4.0
 Markdown==3.8.2
 mysql==0.0.3
 mysqlclient==2.2.7
