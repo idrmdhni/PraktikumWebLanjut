@@ -42,9 +42,11 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 # ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
 RAILWAY_HOSTNAME = config('RAILWAY_STATIC_URL', default=None)
 if RAILWAY_HOSTNAME:
     ALLOWED_HOSTS.append(RAILWAY_HOSTNAME)
+    CSRF_TRUSTED_ORIGINS.append(RAILWAY_HOSTNAME)
 
 
 # Application definition
@@ -81,12 +83,18 @@ LOGOUT_REDIRECT_URL = '/'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        # Data yang diminta dari Google
+        # Metode ini memberitahu allauth untuk mengambil kredensial dari settings.py
+        # daripada dari database (SocialApp model).
+        'APP': {
+            'client_id': os.environ.get('GOOGLE_CLIENT_ID'),
+            'secret': os.environ.get('GOOGLE_CLIENT_SECRET'),
+            'key': '' # Biasanya dikosongkan
+        },
+        # Pengaturan ini tetap sama
         'SCOPE': [
             'profile',
             'email',
         ],
-        # Metode otentikasi
         'AUTH_PARAMS': {
             'access_type': 'online',
         }
