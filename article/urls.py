@@ -28,6 +28,7 @@ urlpatterns = [
     path("article/edit/<int:article_id>", edit_article, name="edit_article"),
     path("article/delete/<int:article_id>", delete_article, name="delete_article"),
 
+
     # Admin
     path("operator/category", admin_category_list, name="admin_category_list"),
     path("operator/category/add", admin_add_category, name="admin_add_category"),

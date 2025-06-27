@@ -23,7 +23,6 @@ urlpatterns = [
     path("contact", contact, name="contact"),
     path("gallery", gallery, name="gallery"),
 
-
     ################ Authentication ################
     path("auth-login", login, name="login"),
     path("auth-register", register, name="register"),
