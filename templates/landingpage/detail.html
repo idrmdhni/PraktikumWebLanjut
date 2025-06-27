@@ -45,7 +45,7 @@
                   <a href="{% url 'article_detail' article.id %}" class="card-title mt-3 h5 d-block text-darker">{{ articlarticle.title }}</a>
                   <p class="card-description mb-4">{{ article.content|striptags|truncatechars:100 }}</p>
                   <div class="author align-items-end flex-fill">
-                    <img src="{% static 'landingpage/assets/img/fotoku.png' %}" alt="..." class="avatar shadow" loading="lazy" />
+                    <img src="{% static 'landingpage/assets/img/avatar.png' %}" alt="..." class="avatar shadow" loading="lazy" />
                     <div class="name ps-2">
                       <span>{{ article.created_by }}</span>
                       <div class="stats">
