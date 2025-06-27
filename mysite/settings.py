@@ -35,7 +35,7 @@ CSRF_TRUSTED_ORIGINS = []
 RAILWAY_HOSTNAME = config('RAILWAY_STATIC_URL', default=None)
 if RAILWAY_HOSTNAME:
     ALLOWED_HOSTS.append(RAILWAY_HOSTNAME)
-    CSRF_TRUSTED_ORIGINS.append('https://' + RAILWAY_HOSTNAME)
+    CSRF_TRUSTED_ORIGINS.append('http://' + RAILWAY_HOSTNAME)
 
 
 # Application definition
