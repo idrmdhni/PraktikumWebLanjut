@@ -2,7 +2,6 @@
 
 [![HTML](https://img.shields.io/badge/language-HTML-blue)](https://www.w3.org/html/)
 [![Python](https://img.shields.io/badge/language-Python-yellow)](https://www.python.org/)
-[![npm](https://img.shields.io/badge/package_manager-npm-green)](https://www.npmjs.com/)
 
 ## 📝 Artikel Web – Django Project
 
