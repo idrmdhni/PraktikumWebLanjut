@@ -97,6 +97,8 @@ Arsitektur proyek mengikuti pola MVT (Model-View-Template) standar Django. Model
 │   ├── tests.py
 │   └── views.py
 ├── manage.py
+├── media
+│   └── article
 ├── mysite
 │   ├── __init__.py
 │   ├── asgi.py
