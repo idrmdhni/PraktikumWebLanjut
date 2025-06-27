@@ -1,0 +1,5 @@
+# File: nixpacks.toml
+
+[phases.setup]
+# Menambahkan paket sistem dari 'apt' yang dibutuhkan untuk kompilasi mysqlclient
+aptPkgs = ["pkg-config", "libmariadb-dev", "gcc"]
