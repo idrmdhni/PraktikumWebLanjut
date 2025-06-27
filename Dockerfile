@@ -46,4 +46,4 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # Perintah untuk menjalankan server Gunicorn saat container dimulai.
 # Railway akan secara otomatis memberikan nilai untuk variabel $PORT.
-CMD ["gunicorn", "mysite.wsgi", "--bind", "0.0.0.0:$PORT", "--log-file", "-"]
+CMD gunicorn mysite.wsgi --bind 0.0.0.0:$PORT --log-file -
