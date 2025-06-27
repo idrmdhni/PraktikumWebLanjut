@@ -97,18 +97,6 @@ Arsitektur proyek mengikuti pola MVT (Model-View-Template) standar Django. Model
 │   ├── tests.py
 │   └── views.py
 ├── manage.py
-├── media
-│   ├── IMG_20201126_170342_sYeDVXF.jpg
-│   ├── IMG_20201126_170342_sYeDVXF_aAeu13C.jpg
-│   ├── YECVT_Yamaha.jpeg
-│   └── article
-│       ├── IMG_20201126_170342.jpg
-│       ├── IMG_20201126_170342_MsLId1p.jpg
-│       ├── IMG_20201126_170342_sYeDVXF.jpg
-│       ├── YECVT_Yamaha.jpeg
-│       ├── YECVT_Yamaha_hpRKWRl.jpeg
-│       ├── sepakbola.jpeg
-│       └── wallpaperbetter.jpg
 ├── mysite
 │   ├── __init__.py
 │   ├── asgi.py
