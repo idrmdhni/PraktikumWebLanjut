@@ -1,4 +1,6 @@
 /venv
+/article/migrations/__pycache__
+/article/templatetags/__pycache__
 /article/__pycache__
 /gallery/__pycache__
 /mysite/__pycache__
