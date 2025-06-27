@@ -1,5 +1,9 @@
 # File: nixpacks.toml
 
 [phases.setup]
-# Menambahkan paket sistem dari 'apt' yang dibutuhkan untuk kompilasi mysqlclient
 aptPkgs = ["pkg-config", "libmariadb-dev", "gcc"]
+
+[phases.build]
+# Override perintah build default agar tidak menjalankan migrate.
+# Cukup install dependensi saja di sini.
+cmds = ["pip install -r requirements.txt"]
