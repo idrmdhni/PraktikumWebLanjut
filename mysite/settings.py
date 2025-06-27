@@ -117,25 +117,10 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 #     }
 # }
 
-# Ganti konfigurasi DATABASES Anda dengan ini:
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
+}
 
-if DATABASE_URL:
-    # Gunakan koneksi PostgreSQL dari Railway saat di-deploy
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql', 
-            'NAME': 'blog_article',
-            'USER': 'root',
-            'PASSWORD': '',
-            'HOST': 'localhost', 
-            'PORT': '3306',
-        }
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
