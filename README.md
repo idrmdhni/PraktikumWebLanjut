@@ -45,7 +45,6 @@ Arsitektur proyek mengikuti pola MVT (Model-View-Template) standar Django. Model
 3. Instal dependensi:
    ```bash
    pip install -r requirements.txt
-   npm install
    ```
 4. Jalankan server pengembangan:
    ```bash
