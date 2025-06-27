@@ -31,12 +31,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ["indrama.my.id"]
-CSRF_TRUSTED_ORIGINS = ["indrama.my.id"]
-RAILWAY_HOSTNAME = config('RAILWAY_STATIC_URL', default=None)
-if RAILWAY_HOSTNAME:
-    ALLOWED_HOSTS.append(RAILWAY_HOSTNAME)
-    CSRF_TRUSTED_ORIGINS.append('https://' + RAILWAY_HOSTNAME)
+ALLOWED_HOSTS = [
+    "indrama.my.id",
+    "www.indrama.my.id", 
+    "praktikumweblanjut-production.up.railway.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://indrama.my.id",
+    "https://www.indrama.my.id",
+    "https://praktikumweblanjut-production.up.railway.app",
+]
+# RAILWAY_HOSTNAME = config('RAILWAY_STATIC_URL', default=None)
+# if RAILWAY_HOSTNAME:
+#     ALLOWED_HOSTS.append(RAILWAY_HOSTNAME)
+#     CSRF_TRUSTED_ORIGINS.append('https://' + RAILWAY_HOSTNAME)
 
 
 # Application definition
