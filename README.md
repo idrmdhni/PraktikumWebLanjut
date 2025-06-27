@@ -23,10 +23,10 @@ Meskipun proyek ini dibuat sebagai bagian dari kegiatan praktikum, konten artike
 ## 🛠️ Tumpukan Teknologi
 
 | Kategori           | Teknologi             | Catatan                               |
-| ------------------ | --------------------- | ------------------------------------- | --- |
+| ------------------ | --------------------- | ------------------------------------- |
 | Bahasa Pemrograman | Python, HTML          | Backend (Python), Frontend (HTML)     |
 | Framework          | Django                | Framework web untuk backend           |
-| Database           | MySQL                 | Berdasarkan dependensi `mysqlclient`. |     |
+| Database           | MySQL                 | Berdasarkan dependensi `mysqlclient`. |
 | Lainnya            | Pillow                | Untuk manipulasi gambar.              |
 | Lainnya            | Django REST framework | Untuk pembuatan REST API.             |
 
