@@ -7,3 +7,8 @@ aptPkgs = ["pkg-config", "libmariadb-dev", "gcc"]
 # Override perintah build default agar tidak menjalankan migrate.
 # Cukup install dependensi saja di sini.
 cmds = ["pip install -r requirements.txt"]
+
+[variables]
+# Variabel ini akan memberitahu settings.py bahwa kita sedang dalam mode build.
+# Nilainya akan 'true' HANYA selama proses build.
+RAILWAY_BUILD_MODE = "true"

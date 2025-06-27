@@ -149,19 +149,33 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', cast=int),
-        'OPTIONS': {
-            'sql_mode': 'STRICT_TRANS_TABLES',
+IS_BUILD_MODE = config('RAILWAY_BUILD_MODE', default=False, cast=bool)
+
+if IS_BUILD_MODE:
+    # Gunakan konfigurasi database DUMMY (SQLite) saat proses build
+    # Ini hanya agar perintah 'migrate' saat build bisa berjalan sukses.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'build_dummy_db.sqlite3',
         }
     }
-}
+else:
+    # Gunakan konfigurasi database ASLI untuk produksi (saat aplikasi berjalan)
+    # dan untuk development lokal Anda.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': config('DB_PORT', cast=int),
+            'OPTIONS': {
+                'sql_mode': 'STRICT_TRANS_TABLES',
+            }
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
