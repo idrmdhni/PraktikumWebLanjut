@@ -10,12 +10,16 @@ from mysite.views import *
 from mysite.authentication import login, register, logout
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+    path('api-auth/', include('rest_framework.urls')),
     path("", index, name="home"),
+    path("api", api, name="api"),
+    path("category/<str:category_id>", get_article_by_category, name="get_article_by_category"),
     path("article/<int:id>", article_detail, name="article_detail"),
     path("article_not_found", article_not_found, name="article_not_found"),
     path("dashboard/", dashboard, name="dashboard"),
     path("dashboard/", include("article.urls")),
-    path("dashboard/article_list", article_list, name="article_list"),
+    path("api/", include("article.urls_api")),
     path("contact", contact, name="contact"),
     path("gallery", gallery, name="gallery"),
 

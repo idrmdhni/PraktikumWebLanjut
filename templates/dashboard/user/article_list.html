@@ -8,8 +8,8 @@
         <!-- Card header -->
         <div class="card-header">
           <div class="d-flex align-items-center">
-            <h5 class="mb-0">Daftar Artikel</h5>
-            <a href="{% url 'admin_add_article' %}" class="btn btn-info ms-3 mb-0">Tambah</a>
+            <h5 class="mb-0">Daftar Artikel Anda</h5>
+            <a href="{% url 'add_article' %}" class="btn btn-info ms-3 mb-0">Tambah</a>
           </div>
         </div>
         <div class="table-responsive">
@@ -34,8 +34,8 @@
                   <td class="text-sm font-weight-normal">{{ article.category }}</td>
                   <td class="text-sm font-weight-normal">{{ article.status }}</td>
                   <td class="text-sm font-weight-normal text-center">
-                    <a href="{% url 'admin_delete_article' article.id %}" class="btn-sm btn-danger me-1" onclick="return confirm('Apakah anda yakin?')">Hapus</a> |
-                    <a href="{% url 'admin_edit_article' article.id %}" class="btn-sm btn-warning ms-1">Edit</a>
+                    <a href="{% url 'delete_article' article.id %}" class="btn-sm btn-danger me-1" onclick="return confirm('Apakah anda yakin?')">Hapus</a> |
+                    <a href="{% url 'edit_article' article.id %}" class="btn-sm btn-warning ms-1">Edit</a>
                   </td>
                 </tr>
               {% endfor %}

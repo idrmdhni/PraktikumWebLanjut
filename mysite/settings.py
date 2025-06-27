@@ -49,10 +49,42 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     'django_ckeditor_5',
+    'rest_framework',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     "article",
     "gallery",
 ]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_REDIRECT_URL = '/'  
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # Data yang diminta dari Google
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        # Metode otentikasi
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -62,6 +94,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware"
 ]
 
 ROOT_URLCONF = "mysite.urls"
@@ -187,9 +220,8 @@ CKEDITOR_5_CONFIGS = {
     'toolbar': {
         'items': ['heading', '|', 'bold', 'italic', 'link',
                     'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
-                }
-
-},
+        }
+    },
 'extends': {
     'blockToolbar': [
         'paragraph', 'heading1', 'heading2', 'heading3',
@@ -237,9 +269,9 @@ CKEDITOR_5_CONFIGS = {
             { 'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1' },
             { 'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2' },
             { 'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3' }
-        ]
-    }
-},
+            ]
+        }
+    },
 'list': {
     'properties': {
         'styles': 'true',

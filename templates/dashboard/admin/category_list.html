@@ -31,7 +31,7 @@
                   <td class="text-sm font-weight-normal">{{ category.created_at }}</td>
                   <td class="text-sm font-weight-normal">{{ category.created_by }}</td>
                   <td class="text-sm font-weight-normal text-center">
-                    <a href="{% url 'admin_delete_category' category.id %}" class="btn-sm btn-danger me-1">Hapus</a> |
+                    <a href="{% url 'admin_delete_category' category.id %}" class="btn-sm btn-danger me-1" onclick="return confirm('Apakah anda yakin?')">Hapus</a> |
                     <a href="{% url 'admin_edit_category' category.id %}" class="btn-sm btn-warning ms-1">Edit</a>
                   </td>
                 </tr>

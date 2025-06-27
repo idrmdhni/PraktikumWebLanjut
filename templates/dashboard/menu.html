@@ -1,4 +1,5 @@
 {% load static %}
+{% load auth_extras %}
 
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
   <div class="sidenav-header">
@@ -13,23 +14,11 @@
     <ul class="navbar-nav">
       <li class="nav-item mb-2 mt-0">
         <a data-bs-toggle="collapse" href="#ProfileNav" class="nav-link text-white d-flex align-items-center" aria-controls="ProfileNav" role="button" aria-expanded="false">
-          <img src="{% static 'dashboard/assets/img/fotoku.JPG' %}" class="avatar" />
-          <div class="nav-link-text ms-2 ps-1 text-wrap">Mohammad Indra Ramadhani</div>
+          <img src="{% static 'dashboard/assets/img/fotoku.png' %}" class="avatar" />
+          <div class="nav-link-text ms-2 ps-1 text-wrap">{{ user }}</div>
         </a>
         <div class="collapse" id="ProfileNav" style="">
           <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% static 'dashboard/pages/pages/profile/overview.html' %}">
-                <i class="material-icons-round">face</i>
-                <span class="sidenav-normal ms-3 ps-1">My Profile</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% static 'dashboard/pages/pages/account/settings.html' %}">
-                <i class="material-icons-round">settings</i>
-                <span class="sidenav-normal ms-3 ps-1">Settings</span>
-              </a>
-            </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="{% url 'logout' %}">
                 <i class="material-icons-round">logout</i>
@@ -56,33 +45,35 @@
         </a>
       </li>
       <li class="nav-item">
-        <hr class="horizontal light" />
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder text-white">ADMIN</h6>
-      </li>
-      <li class="nav-item">
-        <a href="{% url 'admin_category_list' %}" class="nav-link text-white" role="button">
-          <i class="material-icons-round me-2">category</i>
-          <span class="nav-link-text ms-2 ps-1">Kategori</span>
+        <a href="/" class="nav-link text-white" role="button">
+          <i class="material-icons-round me-2">home</i>
+          <span class="nav-link-text ms-2 ps-1">Home</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="{% url 'admin_article_list' %}" class="nav-link text-white" role="button">
-          <i class="material-icons-round me-2">article</i>
-          <span class="nav-link-text ms-2 ps-1">Artikel</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/creativetimofficial/ct-material-dashboard-pro/blob/master/CHANGELOG.md" target="_blank">
-          <i class="material-icons-round me-2">image</i>
-          <span class="nav-link-text ms-2 ps-1">Galeri</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/creativetimofficial/ct-material-dashboard-pro/blob/master/CHANGELOG.md" target="_blank">
-          <i class="material-icons-round me-2">groups</i>
-          <span class="nav-link-text ms-2 ps-1">Users</span>
-        </a>
-      </li>
+      {% if request.user|has_group:'Operator' %}
+        <li class="nav-item">
+          <hr class="horizontal light" />
+          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder text-white">ADMIN</h6>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'admin_category_list' %}" class="nav-link text-white" role="button">
+            <i class="material-icons-round me-2">category</i>
+            <span class="nav-link-text ms-2 ps-1">Kategori</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'admin_article_list' %}" class="nav-link text-white" role="button">
+            <i class="material-icons-round me-2">article</i>
+            <span class="nav-link-text ms-2 ps-1">Artikel</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'admin_management_user_list' %}">
+            <i class="material-icons-round me-2">groups</i>
+            <span class="nav-link-text ms-2 ps-1">Users</span>
+          </a>
+        </li>
+      {% endif %}
     </ul>
   </div>
 </aside>
