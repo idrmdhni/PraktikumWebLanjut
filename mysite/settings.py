@@ -118,9 +118,16 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql', # Mulai dengan engine postgres
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
 }
-
+DATABASES['default'].update(dj_database_url.config(conn_max_age=600, ssl_require=False))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
