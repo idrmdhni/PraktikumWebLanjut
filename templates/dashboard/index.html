@@ -64,9 +64,9 @@
                   </tr>
                 {% else %}
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">No.</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Aksi</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Aksi</th>
                   </tr>
                 {% endif %}
               </thead>
@@ -85,12 +85,12 @@
                 {% else %}
                   {% for article in articles %}
                     <tr>
-                      <td class="text-sm font-weight-normal">{{ forloop.counter }}.</td>
+                      <td class="text-sm font-weight-normal text-center">{{ forloop.counter }}.</td>
                       <td class="px-4">
                         <h6 class="mb-0 text-sm">{{ article }}</h6>
                       </td>
                       <td class="px-2">
-                        <a href="{% url 'article_detail' article.id %}" class="btn-sm btn-primary">Lihat</a>
+                        <a href="{% url 'article_detail' article.id %}" class="btn-sm btn-primary text-center">Lihat</a>
                       </td>
                     </tr>
                   {% endfor %}
