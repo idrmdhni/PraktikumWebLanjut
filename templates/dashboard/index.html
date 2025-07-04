@@ -47,7 +47,11 @@
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
-          <h6>Jumlah Artikel Per User</h6>
+          {% if request.user|has_group:'Operator' %}
+            <h6>Jumlah Artikel Per User</h6>
+          {% else %}
+            <h6>Artikel Terbaru Anda</h6>
+          {% endif %}
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
@@ -57,6 +61,12 @@
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Artikel</th>
+                  </tr>
+                {% else %}
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Aksi</th>
                   </tr>
                 {% endif %}
               </thead>
@@ -75,6 +85,7 @@
                 {% else %}
                   {% for article in articles %}
                     <tr>
+                      <td>{{ forloop.counter }}.</td>
                       <td class="px-4">
                         <h6 class="mb-0 text-sm">{{ article }}</h6>
                       </td>
